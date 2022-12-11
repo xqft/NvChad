@@ -26,6 +26,28 @@ return {
         "python-lsp-server",
       },
     },
-  }
+  },
 
+  ["mfussenegger/nvim-dap"] = {},
+
+  ["mxsdev/nvim-dap-vscode-js"] = {
+    requires = {"mfussenegger/nvim-dap"},
+    config = function ()
+       require "custom.dap.js"
+    end
+  },
+
+  ["theHamsta/nvim-dap-virtual-text"] = {
+    requires = "nvim-dap",
+    config = function ()
+      require("nvim-dap-virtual-text").setup()
+    end
+  },
+
+  ["rcarriga/nvim-dap-ui"] = {
+    requires = "nvim-dap",
+    config = function ()
+      require("dapui").setup()
+    end
+  },
 }
