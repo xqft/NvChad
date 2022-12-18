@@ -50,4 +50,12 @@ return {
       require("custom.plugins.dap")
     end
   },
+
+  ["hrsh7th/nvim-cmp"] = {
+    override_options = {
+      completion = {
+        completeopt = "menu,menuone,noinsert"
+      },
+    }
+  },
 }
