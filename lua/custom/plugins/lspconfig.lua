@@ -7,6 +7,8 @@ local servers = {
   "html", "emmet_ls", "cssls", "tsserver", "jsonls",
   "rust_analyzer",
   "pylsp",
+  "sqlls",
+  "dockerls",
 }
 
 for _, lsp in ipairs(servers) do
