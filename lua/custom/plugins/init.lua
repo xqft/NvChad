@@ -31,6 +31,26 @@ return {
     },
   },
 
+  ["jose-elias-alvarez/null-ls.nvim"] = {
+    config = function ()
+      local null_ls = require "null-ls"
+      null_ls.setup({
+        sources = {
+          null_ls.builtins.formatting.rustfmt
+        }
+      })
+    end
+  },
+
+  ["folke/trouble.nvim"] = {
+    requires = "nvim-tree/nvim-web-devicons",
+    config = function()
+      require("trouble").setup()
+    end
+  },
+
+  ["folke/lsp-colors.nvim"] = {},
+
   ["mfussenegger/nvim-dap"] = {},
 
   ["mxsdev/nvim-dap-vscode-js"] = {
@@ -59,10 +79,30 @@ return {
       completion = {
         completeopt = "menu,menuone,noinsert"
       },
+
+      sources = {
+        { name = "crates" }
+      }
     }
   },
 
   ["iamcco/markdown-preview.nvim"] = {
     run = function() vim.fn["mkdp#util#install"]() end,
+  },
+
+  ["nvim-treesitter/nvim-treesitter-refactor"] = {},
+
+  ["saecki/crates.nvim"] = {
+    config = function()
+      require('crates').setup()
+    end,
+    event = { "BufRead Cargo.toml" }
+  },
+
+  ["SmiteshP/nvim-navic"] = {
+    requires = "neovim/nvim-lspconfig",
+    config = function()
+      vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+    end
   },
 }
