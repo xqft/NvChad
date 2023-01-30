@@ -105,4 +105,18 @@ return {
       vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
     end
   },
+
+  ["sindrets/diffview.nvim"] = {},
+
+  ["akinsho/git-conflict.nvim"] = {
+    config = function()
+      require('git-conflict').setup()
+    end
+  },
+
+  ["https://gitlab.com/yorickpeterse/nvim-pqf.git"] = {
+    config = function()
+      require('pqf').setup()
+    end
+  },
 }
